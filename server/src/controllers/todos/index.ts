@@ -1,16 +1,15 @@
 /*
  * @Description  :
  * @Author       : ch1lam
- * @Date         : 2022-03-08 15:00:26
- * @LastEditTime : 2022-03-08 18:31:37
+ * @Date         : 2022-03-17 16:06:51
+ * @LastEditTime : 2022-03-17 16:13:46
  * @LastEditors  : chilam
- * @FilePath     : \todo-app\src\controllers\todos\index.ts
+ * @FilePath     : \todo-app\server\src\controllers\todos\index.ts
  */
 import { Response, Request } from "express";
 import { ITodo } from "./../../types/todo";
 import Todo from "../../models/todo";
 
-// 查
 const getTodos = async (req: Request, res: Response): Promise<void> => {
   try {
     const todos: ITodo[] = await Todo.find();
@@ -20,7 +19,6 @@ const getTodos = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-// 增
 const addTodo = async (req: Request, res: Response): Promise<void> => {
   try {
     const body = req.body as Pick<ITodo, "name" | "description" | "status">;
@@ -42,19 +40,16 @@ const addTodo = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-// 改
 const updateTodo = async (req: Request, res: Response): Promise<void> => {
   try {
     const {
       params: { id },
       body,
     } = req;
-
     const updateTodo: ITodo | null = await Todo.findByIdAndUpdate(
       { _id: id },
       body
     );
-
     const allTodos: ITodo[] = await Todo.find();
     res.status(200).json({
       message: "Todo updated",
