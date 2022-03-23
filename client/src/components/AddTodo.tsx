@@ -2,7 +2,7 @@
  * @Description  :
  * @Author       : ch1lam
  * @Date         : 2022-03-08 22:31:46
- * @LastEditTime : 2022-03-18 18:23:29
+ * @LastEditTime : 2022-03-23 20:46:23
  * @LastEditors  : chilam
  * @FilePath     : \todo-app\client\src\components\AddTodo.tsx
  */
@@ -22,7 +22,7 @@ const AddTodo: React.FC<Props> = ({ saveTodo }) => {
     });
   };
   return (
-    <form className="Form" onSubmit={(e) => saveTodo(e, FormData)}>
+    <form className="Form" onSubmit={(e) => saveTodo(e, formData)}>
       <div>
         <div>
           <label htmlFor="name">Name</label>
