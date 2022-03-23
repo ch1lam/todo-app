@@ -20,6 +20,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "concurrently \"tsc -w\" \"nodemon dist/js/app.js\""
+    "start": "concurrently \"tsc -w\" \"nodemon dist/js/app.js\"",
+    "dev": "concurrently \"tsc -w\" \"nodemon --inspect dist/js/app.js\""
   }
 }
